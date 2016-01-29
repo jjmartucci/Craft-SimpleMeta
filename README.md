@@ -46,7 +46,13 @@ The fallback will work as both a fallback if the entry doesn't exist, but will a
 
 ##### Title Tag
 
-The `output` tag will no longer include the `<title>` tag. This will need to be implemented by you. Example forthcoming on how you can handle this.
+The `output` tag will no longer include the `<title>` tag. This will need to be implemented by you. This example checks for the existence of an seoTitle field, if it does not exist, it falls back to the entry title.
+
+```
+{% set pageTitle = entry.getFieldValue('meta')['seoTitle'] is defined ? entry.title %}
+<title>{{ pageTitle }}</title>
+
+```
 
 ### 2. Custom Template
 
